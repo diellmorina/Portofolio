@@ -1,0 +1,479 @@
+:root {
+  --bg: #f4f1ea;
+  --surface: #ffffff;
+  --ink: #1d2c38;
+  --muted: #5f6c76;
+  --primary: #c24627;
+  --primary-dark: #8d2f19;
+  --line: rgba(29, 44, 56, 0.14);
+  --soft-shadow: 0 18px 40px rgba(26, 40, 51, 0.15);
+  --hero-overlay: linear-gradient(100deg, rgba(21, 31, 40, 0.84), rgba(21, 31, 40, 0.4));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(900px 500px at -20% -10%, #d4e7ef 0%, transparent 48%),
+    radial-gradient(900px 500px at 110% 110%, #f2c9b8 0%, transparent 50%),
+    var(--bg);
+}
+
+.page-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.1;
+  background-image: radial-gradient(#000 0.7px, transparent 0);
+  background-size: 18px 18px;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.95rem 4vw;
+  background: rgba(244, 241, 234, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  font-family: "Urbanist", "Verdana", sans-serif;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.1rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.menu-btn {
+  display: none;
+}
+
+main {
+  width: min(1120px, 92vw);
+  margin: 1.2rem auto 0;
+}
+
+.hero {
+  position: relative;
+  min-height: 70vh;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: var(--soft-shadow);
+}
+
+.hero-slider {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-slider img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 750ms ease, transform 5.5s linear;
+}
+
+.hero-slider img.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--hero-overlay);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  padding: clamp(1.5rem, 5vw, 3.6rem);
+  max-width: 62ch;
+}
+
+.kicker {
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  margin: 0;
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: "Urbanist", "Trebuchet MS", sans-serif;
+}
+
+h1 {
+  margin-top: 0.7rem;
+  font-size: clamp(2rem, 5vw, 4.1rem);
+  line-height: 1.02;
+}
+
+.hero-content p {
+  margin-top: 1rem;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+}
+
+.cta,
+.ghost-btn,
+.contact-form button,
+.menu-btn {
+  border: 0;
+  border-radius: 14px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.cta {
+  margin-top: 0.9rem;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.8rem 1.1rem;
+  color: #fff;
+  background: linear-gradient(130deg, var(--primary), #de6648);
+  box-shadow: 0 10px 25px rgba(194, 70, 39, 0.32);
+}
+
+.section {
+  margin-top: 1.2rem;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: clamp(1rem, 3vw, 2rem);
+  box-shadow: var(--soft-shadow);
+}
+
+.section-head {
+  margin-bottom: 1rem;
+}
+
+.section-head h2 {
+  margin-top: 0.35rem;
+  font-size: clamp(1.4rem, 3vw, 2.3rem);
+}
+
+.section-head.inline {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 0.8rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.card {
+  padding: 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(250, 248, 244, 1));
+}
+
+.card h3 {
+  font-size: 1.18rem;
+}
+
+.card p {
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1rem;
+}
+
+.check-list {
+  margin: 0.9rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+.check-list li + li {
+  margin-top: 0.42rem;
+}
+
+.metric-stack {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: linear-gradient(145deg, #1f3141, #2f485b);
+  color: #fff;
+  padding: 1rem;
+  display: grid;
+  gap: 0.65rem;
+  align-content: start;
+}
+
+.metric-stack p {
+  margin: 0;
+}
+
+.metric-stack strong {
+  display: block;
+  font-size: 1.6rem;
+  font-family: "Urbanist", sans-serif;
+}
+
+.ghost-btn {
+  color: #fff;
+  background: linear-gradient(130deg, #2c495f, #355f78);
+  padding: 0.58rem 0.9rem;
+  font-weight: 700;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.68rem;
+}
+
+.gallery-item {
+  border: 0;
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  transition: transform 220ms ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.hidden-item {
+  display: none;
+}
+
+.show-all .hidden-item {
+  display: inline-block;
+}
+
+.supplier-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.supplier-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  padding: 0.85rem;
+}
+
+.supplier-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #20384a;
+  color: #fff;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+}
+
+.supplier-card p {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+}
+
+.contact-info ul {
+  margin: 0.8rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+.contact-form {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  padding: 0.95rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.contact-form label {
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 0.62rem 0.72rem;
+  font: inherit;
+}
+
+.consent {
+  display: flex;
+  align-items: center;
+  gap: 0.48rem;
+  font-size: 0.94rem;
+}
+
+.contact-form button {
+  margin-top: 0.35rem;
+  color: #fff;
+  background: linear-gradient(130deg, var(--primary), #df6548);
+  padding: 0.72rem 1rem;
+  font-weight: 700;
+}
+
+#form-status {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  min-height: 1.3rem;
+}
+
+.footer {
+  width: min(1120px, 92vw);
+  margin: 1rem auto 1.8rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.lightbox {
+  width: min(940px, 94vw);
+  border: 0;
+  border-radius: 14px;
+  padding: 0.7rem;
+}
+
+.lightbox::backdrop {
+  background: rgba(8, 13, 18, 0.75);
+}
+
+.lightbox img {
+  width: 100%;
+  max-height: 76vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 10px;
+}
+
+.close-lightbox {
+  border: 0;
+  border-radius: 9px;
+  padding: 0.45rem 0.68rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  background: #253d4f;
+  color: #fff;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 550ms ease, transform 550ms ease;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 980px) {
+  .cards,
+  .supplier-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 740px) {
+  .menu-btn {
+    display: inline-block;
+    background: #20394b;
+    color: #fff;
+    padding: 0.48rem 0.68rem;
+    font-weight: 700;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    padding: 0.7rem 4vw;
+    background: rgba(244, 241, 234, 0.97);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .main-nav.is-open {
+    display: flex;
+  }
+
+  .section-head.inline {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .cards,
+  .supplier-grid,
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: 64vh;
+  }
+}

@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Limani Studio | Photography & Production</title>
+<meta name="description" content="Limani Studio ofron fotografi profesionale dhe video production në Kosovë. Dasma, evente, portrete dhe produksion kreativ.">
+<meta name="keywords" content="Limani Studio, fotograf Kosovë, fotograf Rahovec, video production Kosovë, fotograf dasma, fotograf evente">
+<meta name="author" content="Limani Studio">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:#0a0a0a;color:#fff;line-height:1.6;overflow-x:hidden}
+.container{width:90%;max-width:1200px;margin:auto}
+header{position:fixed;width:100%;top:0;z-index:1000;transition:.3s;background:rgba(0,0,0,.4);backdrop-filter:blur(10px)}
+header.scrolled{background:#000;box-shadow:0 10px 40px rgba(0,0,0,.45)}
+header .container{display:flex;justify-content:space-between;align-items:center;padding:15px 0;gap:25px}
+h1{font-family:'Playfair Display',serif;letter-spacing:2px;font-size:1.65rem;white-space:nowrap}
+h1 a{color:inherit;text-decoration:none;cursor:pointer}
+nav ul{display:flex;list-style:none;align-items:center;gap:25px}
+nav ul li{margin-left:0}
+nav a{color:#fff;text-decoration:none;position:relative;font-size:.95rem}
+nav a::after{content:"";position:absolute;width:0;height:2px;background:#e63946;left:0;bottom:-5px;transition:.3s}
+nav a:hover::after{width:100%}
+.menu-toggle{display:none;border:none;background:transparent;color:#fff;font-size:26px;cursor:pointer}
+.header-actions{display:flex;align-items:center;gap:12px;margin-left:auto}
+.language-switcher{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:20px;padding:7px 12px;font-size:.9rem;outline:none}
+.language-switcher option{color:#111}
+.hero{height:100vh;background:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.7),rgba(0,0,0,.55),rgba(0,0,0,.8))}
+.hero-content{position:relative;z-index:2;width:90%;max-width:900px}
+.hero h2{font-size:clamp(2.3rem,7vw,4.4rem);line-height:1.1;font-family:'Playfair Display',serif}
+.hero p{margin:15px 0 28px;font-size:clamp(1rem,2.2vw,1.2rem);opacity:.84}
+.btn{display:inline-block;padding:12px 30px;background:#e63946;color:#fff;text-decoration:none;border-radius:30px;transition:.3s;border:none;cursor:pointer;font-weight:500}
+.btn:hover{background:#ff4d5a;transform:translateY(-2px)}
+section{padding:clamp(70px,10vw,100px) 0}
+h2{font-family:'Playfair Display',serif;margin-bottom:30px;font-size:clamp(2rem,4vw,2.8rem)}
+.section-intro{max-width:720px;opacity:.78;margin-top:-15px;margin-bottom:35px}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
+.service{background:linear-gradient(180deg,#141414,#0f0f0f);padding:30px 24px;border-radius:18px;text-align:center;transition:.3s;border:1px solid rgba(255,255,255,.06)}
+.service:hover{transform:translateY(-10px);border-color:rgba(230,57,70,.45)}
+.service i{font-size:32px;margin-bottom:15px;color:#e63946}
+.service h3{margin-bottom:10px}
+.service p{opacity:.72;font-size:.95rem}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.why img{width:100%;border-radius:18px;min-height:360px;object-fit:cover}
+.why-text p{margin-bottom:15px;opacity:.8}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:25px}
+.stat{background:#111;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px;text-align:center}
+.stat strong{display:block;font-size:1.6rem;color:#e63946}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+.gallery img{width:100%;height:clamp(220px,32vw,300px);object-fit:cover;border-radius:14px;transition:.4s;border:1px solid rgba(255,255,255,.07)}
+.gallery img:hover{transform:scale(1.035);filter:brightness(72%)}
+.gallery-empty,.gallery-error{grid-column:1/-1;background:#111;border-radius:14px;padding:24px;opacity:.8}
+.gallery-error{color:#ff6b6b}
+.cta{text-align:center;background:linear-gradient(135deg,#111,#181818);padding:85px 20px;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.cta h2{margin-bottom:20px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact-info p{margin:12px 0;opacity:.88}
+.contact-info i{color:#e63946;margin-right:10px;width:18px}
+.contact-info a{color:#fff;text-decoration:none;transition:.3s}
+.contact-info a:hover{color:#e63946}
+.contact-form input,.contact-form textarea{width:100%;padding:13px 14px;margin:10px 0;border:none;border-radius:10px;background:#151515;color:#fff;outline:1px solid rgba(255,255,255,.08)}
+.contact-form input:focus,.contact-form textarea:focus{outline-color:rgba(230,57,70,.8)}
+.contact-form textarea{min-height:140px;resize:vertical}
+.contact-form button{width:100%;padding:13px;background:#e63946;border:none;border-radius:10px;color:white;cursor:pointer;font-weight:600;transition:.3s}
+.contact-form button:hover{background:#ff4d5a}
+footer{background:#000;padding:40px 0;text-align:center;opacity:.75}
+.fade{opacity:0;transform:translateY(20px);transition:1s}
+.fade.show{opacity:1;transform:translateY(0)}
+@media(max-width:992px){.hero{min-height:100svh;height:auto;padding:120px 0 80px}.why{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:768px){header .container{padding:14px 0}.header-actions{gap:10px}.language-switcher{padding:6px 10px;font-size:.85rem}.menu-toggle{display:block}nav{position:absolute;top:100%;left:0;width:100%;background:rgba(0,0,0,.96);border-top:1px solid rgba(255,255,255,.08)}nav ul{flex-direction:column;align-items:stretch;max-height:0;opacity:0;overflow:hidden;transition:max-height .35s ease,opacity .25s ease;gap:0}nav.open ul{max-height:340px;opacity:1;padding:8px 0}nav ul li{border-top:1px solid rgba(255,255,255,.08)}nav ul li a{display:block;padding:14px 5%}.contact-grid{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}.stats{grid-template-columns:1fr}}
+@media(max-width:480px){.container{width:92%}h1{font-size:1.2rem}.header-actions{gap:8px}.language-switcher{width:72px}.hero{min-height:92svh;padding:110px 0 60px}.btn{width:100%;max-width:260px}section{padding:65px 0}}
+
+.toast-success{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:100000;
+  background:#0f5132;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:14px;
+  padding:15px 18px;
+  box-shadow:0 18px 60px rgba(0,0,0,.45);
+  opacity:0;
+  transform:translateY(18px);
+  pointer-events:none;
+  transition:.35s ease;
+  max-width:320px;
+  font-weight:600;
+}
+.toast-success.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+
+@media(max-width:520px){
+  .toast-success{left:14px;right:14px;bottom:14px;max-width:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1><a href="#home">Limani Studio</a></h1>
+    <div class="header-actions">
+      <select id="languageSwitcher" class="language-switcher" aria-label="Select language">
+        <option value="sq">Shqip</option>
+        <option value="en">English</option>
+      </select>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#home" data-i18n="navHome">Kreu</a></li>
+        <li><a href="#services" data-i18n="navServices">Shërbimet</a></li>
+        <li><a href="#portfolio" data-i18n="navPortfolio">Portfolio</a></li>
+        <li><a href="#contact" data-i18n="navContact">Kontakti</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section id="home" class="hero">
+  <div class="hero-content fade">
+    <h2 data-i18n="heroTitle">Ne Kapim Çdo Histori</h2>
+    <p data-i18n="heroSubtitle">Fotografi Premium & Prodhim Video</p>
+    <a href="#contact" class="btn" data-i18n="bookNow">Rezervo Tani</a>
+  </div>
+</section>
+
+<section id="services" class="fade">
+  <div class="container">
+    <h2 data-i18n="servicesTitle">Shërbimet</h2>
+    <p class="section-intro" data-i18n="servicesIntro">Nga dasmat te eventet dhe kampanjat për biznese, ne krijojmë pamje që duken profesionale dhe mbeten kujtim.</p>
+    <div class="services-grid">
+      <div class="service"><i class="fas fa-camera"></i><h3 data-i18n="servicePhoto">Fotografi</h3><p data-i18n="servicePhotoText">Portrete, dasma, evente dhe sete profesionale.</p></div>
+      <div class="service"><i class="fas fa-video"></i><h3 data-i18n="serviceVideo">Prodhim Video</h3><p data-i18n="serviceVideoText">Video kinematike për kujtime, biznese dhe rrjete sociale.</p></div>
+      <div class="service"><i class="fas fa-edit"></i><h3 data-i18n="serviceEdit">Montazh</h3><p data-i18n="serviceEditText">Ngjyra, retushim, prerje dhe finalizim profesional.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="fade">
+  <div class="container why">
+    <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1200&q=80" alt="Limani Studio photography production" loading="lazy">
+    <div class="why-text">
+      <h2 data-i18n="whyTitle">Pse Të Zgjidhni Ne</h2>
+      <p data-i18n="whyP1">Ne sjellim cilësi filmike me vëmendje ndaj çdo detaji.</p>
+      <p data-i18n="whyP2">Ekipi ynë përdor pajisje profesionale dhe teknika moderne.</p>
+      <p data-i18n="whyP3">Të besuar nga klientë në të gjithë Kosovën.</p>
+      <div class="stats">
+        <div class="stat"><strong>4K</strong><span>Video</span></div>
+        <div class="stat"><strong>HD</strong><span>Photo</span></div>
+        <div class="stat"><strong>24h</strong><span>Support</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio" class="fade">
+  <div class="container">
+    <h2 data-i18n="portfolioTitle">Portfolio</h2>
+    <p class="section-intro" data-i18n="portfolioIntro">Fotot këtu ngarkohen nga admin paneli me Cloudinary dhe ruhen në Firebase Firestore.</p>
+    <div class="gallery" id="gallery">
+      <p class="gallery-empty">Loading gallery...</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta fade">
+  <h2 data-i18n="ctaTitle">Gati Të Punoni Me Ne?</h2>
+  <a href="#contact" class="btn" data-i18n="contactNow">Na Kontaktoni</a>
+</section>
+
+<section id="contact" class="fade">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <h2 data-i18n="contactTitle">Kontakti</h2>
+      <p><i class="fa fa-phone"></i><a href="tel:+38349412762">+383 49 412 762</a></p>
+      <p><i class="fa fa-envelope"></i><a href="mailto:fotolimani@hotmail.com">fotolimani@hotmail.com</a></p>
+      <p><i class="fa fa-location-dot"></i>Rahovec, Kosovë</p>
+    </div>
+    <div class="contact-form">
+      <form action="https://formspree.io/f/xdapezro" method="POST">
+        <input type="text" name="name" placeholder="Emri" data-i18n-placeholder="namePlaceholder" required>
+        <input type="email" name="email" placeholder="Email" data-i18n-placeholder="emailPlaceholder" required>
+        <textarea name="message" placeholder="Mesazhi" data-i18n-placeholder="messagePlaceholder" required></textarea>
+        <input type="text" name="_gotcha" style="display:none">
+        <button type="submit" data-i18n="sendBtn">Dërgo</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p data-i18n="footerText">&copy; 2026 Limani Studio</p>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LocalBusiness",
+  "name":"Limani Studio",
+  "telephone":"+38349412762",
+  "email":"fotolimani@hotmail.com",
+  "address":{"@type":"PostalAddress","addressLocality":"Rahovec","addressCountry":"Kosovo"},
+  "description":"Fotografi dhe video production profesional në Kosovë"
+}
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+import { getFirestore, collection, getDocs, addDoc, serverTimestamp, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+import { getAuth, signInWithEmailAndPassword, signOut, setPersistence, inMemoryPersistence } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAEbF3RU0QZgINdiuGjXIO6gUhayNvmyJU",
+  authDomain: "limani-studio.firebaseapp.com",
+  projectId: "limani-studio",
+  storageBucket: "limani-studio.firebasestorage.app",
+  messagingSenderId: "21903752554",
+  appId: "1:21903752554:web:f7f31836fdea96c60f7913",
+  measurementId: "G-595CNL7VHB"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+await setPersistence(auth, inMemoryPersistence);
+
+async function loadPublicPhotos(){
+  const gallery = document.getElementById("gallery");
+  if(!gallery) return;
+
+  gallery.innerHTML = `<p class="gallery-empty">Loading gallery...</p>`;
+
+  try{
+    const querySnapshot = await getDocs(collection(db,"photos"));
+    const photos = [];
+
+    querySnapshot.forEach((docSnap)=>{
+      const photo = docSnap.data();
+
+      if(photo.url){
+        photos.push({
+          url: photo.url,
+          createdAtMs: photo.createdAtMs || 0
+        });
+      }
+    });
+
+    photos.sort((a,b)=>b.createdAtMs-a.createdAtMs);
+
+    let html = "";
+
+    photos.forEach((photo)=>{
+      html += `
+        <img
+          src="${photo.url}"
+          alt="Fotografi profesionale Limani Studio"
+          loading="lazy"
+        >
+      `;
+    });
+
+    gallery.innerHTML = html || `
+      <p class="gallery-empty">Ende nuk ka foto në galeri. Upload fotot me F9 ose admin.html.</p>
+    `;
+  }catch(error){
+    console.error("Firestore gallery error:", error);
+    gallery.innerHTML = `
+      <p class="gallery-error">Gabim gjatë ngarkimit të fotove nga Firestore: ${error.code || ""} ${error.message}</p>
+    `;
+  }
+}
+
+window.addEventListener("scroll",()=>{
+  document.querySelector("header").classList.toggle("scrolled",window.scrollY>50);
+});
+
+const languageSwitcher = document.getElementById("languageSwitcher");
+const translations = {
+  sq:{
+    pageTitle:"Limani Studio | Fotografi & Prodhim",
+    navHome:"Kreu", navServices:"Shërbimet", navPortfolio:"Portfolio", navContact:"Kontakti",
+    heroTitle:"Ne Kapim Çdo Histori", heroSubtitle:"Fotografi Premium & Prodhim Video", bookNow:"Rezervo Tani",
+    servicesTitle:"Shërbimet", servicesIntro:"Nga dasmat te eventet dhe kampanjat për biznese, ne krijojmë pamje që duken profesionale dhe mbeten kujtim.",
+    servicePhoto:"Fotografi", servicePhotoText:"Portrete, dasma, evente dhe sete profesionale.",
+    serviceVideo:"Prodhim Video", serviceVideoText:"Video kinematike për kujtime, biznese dhe rrjete sociale.",
+    serviceEdit:"Montazh", serviceEditText:"Ngjyra, retushim, prerje dhe finalizim profesional.",
+    whyTitle:"Pse Të Zgjidhni Ne", whyP1:"Ne sjellim cilësi filmike me vëmendje ndaj çdo detaji.", whyP2:"Ekipi ynë përdor pajisje profesionale dhe teknika moderne.", whyP3:"Të besuar nga klientë në të gjithë Kosovën.",
+    portfolioTitle:"Portfolio", portfolioIntro:"Fotot këtu ngarkohen nga admin paneli me Cloudinary dhe ruhen në Firebase Firestore.",
+    ctaTitle:"Gati Të Punoni Me Ne?", contactNow:"Na Kontaktoni", contactTitle:"Kontakti",
+    namePlaceholder:"Emri", emailPlaceholder:"Email", messagePlaceholder:"Mesazhi", sendBtn:"Dërgo", footerText:"© 2026 Limani Studio"
+  },
+  en:{
+    pageTitle:"Limani Studio | Photography & Production",
+    navHome:"Home", navServices:"Services", navPortfolio:"Portfolio", navContact:"Contact",
+    heroTitle:"We Capture Every Story", heroSubtitle:"Premium Photography & Video Production", bookNow:"Book Now",
+    servicesTitle:"Services", servicesIntro:"From weddings to events and business campaigns, we create professional visuals that last.",
+    servicePhoto:"Photography", servicePhotoText:"Portraits, weddings, events and professional shoots.",
+    serviceVideo:"Video Production", serviceVideoText:"Cinematic videos for memories, businesses and social media.",
+    serviceEdit:"Editing", serviceEditText:"Color grading, retouching, cutting and professional finishing.",
+    whyTitle:"Why Choose Us", whyP1:"We deliver cinematic quality content with attention to every detail.", whyP2:"Our team uses professional equipment and modern techniques.", whyP3:"Trusted by clients across Kosovo.",
+    portfolioTitle:"Portfolio", portfolioIntro:"Photos here are uploaded from the Cloudinary admin panel and saved in Firebase Firestore.",
+    ctaTitle:"Ready to Work With Us?", contactNow:"Contact Now", contactTitle:"Contact",
+    namePlaceholder:"Name", emailPlaceholder:"Email", messagePlaceholder:"Message", sendBtn:"Send", footerText:"© 2026 Limani Studio"
+  }
+};
+
+function applyLanguage(lang){
+  const safeLang = translations[lang] ? lang : "sq";
+  document.documentElement.lang = safeLang;
+  document.title = translations[safeLang].pageTitle;
+
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if(translations[safeLang][key]) el.textContent = translations[safeLang][key];
+  });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
+    const key = el.getAttribute("data-i18n-placeholder");
+    if(translations[safeLang][key]) el.setAttribute("placeholder",translations[safeLang][key]);
+  });
+
+  if(languageSwitcher){
+    languageSwitcher.value = safeLang;
+  }
+}
+
+if(languageSwitcher){
+  languageSwitcher.addEventListener("change", e=>applyLanguage(e.target.value));
+}
+
+const menuToggle = document.querySelector(".menu-toggle");
+const nav = document.querySelector("nav");
+if(menuToggle && nav){
+  menuToggle.addEventListener("click",()=>{
+    const isOpen = nav.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded",String(isOpen));
+  });
+
+  document.querySelectorAll("nav a").forEach(link=>{
+    link.addEventListener("click",()=>{
+      nav.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded","false");
+    });
+  });
+}
+
+const fades = document.querySelectorAll(".fade");
+function showFadeElements(){
+  fades.forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("show");
+  });
+}
+window.addEventListener("scroll",showFadeElements);
+showFadeElements();
+
+
+// SECRET F9 UPLOAD ON MAIN PAGE
+// Direct upload to Cloudinary API, no widget, so it will not stay stuck on “loading”.
+const CLOUDINARY_CLOUD_NAME = "daz3ip3yw";
+const CLOUDINARY_UPLOAD_PRESET = "limani_unsigned"; // NDRYSHOJE nëse preset-i yt ka emër tjetër
+
+
+function showSuccessToast(message){
+  let toast = document.getElementById("successToast");
+  if(!toast){
+    toast = document.createElement("div");
+    toast.id = "successToast";
+    toast.className = "toast-success";
+    document.body.appendChild(toast);
+  }
+
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  setTimeout(()=>{
+    toast.classList.remove("show");
+  }, 3200);
+}
+
+function parseSizePreset(value){
+  if(!value || value === "original") return null;
+  const [w,h] = value.split("x").map(Number);
+  if(!w || !h) return null;
+  return { width:w, height:h };
+}
+
+async function resizeImageFile(file, size){
+  if(!size) return file;
+
+  const objectUrl = URL.createObjectURL(file);
+  try{
+    const img = await new Promise((resolve, reject) => {
+      const image = new Image();
+      image.onload = () => resolve(image);
+      image.onerror = reject;
+      image.src = objectUrl;
+    });
+
+    const canvas = document.createElement("canvas");
+    canvas.width = size.width;
+    canvas.height = size.height;
+    const ctx = canvas.getContext("2d");
+
+    const scale = Math.max(size.width / img.width, size.height / img.height);
+    const drawWidth = img.width * scale;
+    const drawHeight = img.height * scale;
+    const dx = (size.width - drawWidth) / 2;
+    const dy = (size.height - drawHeight) / 2;
+
+    ctx.drawImage(img, dx, dy, drawWidth, drawHeight);
+
+    const blob = await new Promise(resolve => canvas.toBlob(resolve, "image/jpeg", 0.92));
+    return new File([blob], file.name.replace(/\.[^.]+$/, "") + `-${size.width}x${size.height}.jpg`, { type:"image/jpeg" });
+  } finally {
+    URL.revokeObjectURL(objectUrl);
+  }
+}
+
+
+const SECRET_PREVIEW_SIZES = [
+  { label: "Original", value: "original" },
+  { label: "256x256", value: "256x256" },
+  { label: "512x512", value: "512x512" },
+  { label: "768x768", value: "768x768" },
+  { label: "1024x1024", value: "1024x1024" },
+  { label: "1080x1080", value: "1080x1080" },
+  { label: "640x480", value: "640x480" },
+  { label: "800x600", value: "800x600" },
+  { label: "1200x800", value: "1200x800" },
+  { label: "1280x720", value: "1280x720" },
+  { label: "1920x1080", value: "1920x1080" }
+];
+
+async function makeSecretPreviewDataUrl(file, size){
+  const objectUrl = URL.createObjectURL(file);
+
+  try{
+    const img = await new Promise((resolve, reject) => {
+      const image = new Image();
+      image.onload = () => resolve(image);
+      image.onerror = reject;
+      image.src = objectUrl;
+    });
+
+    if(!size){
+      return {
+        url: objectUrl,
+        width: img.width,
+        height: img.height,
+        cleanup: () => URL.revokeObjectURL(objectUrl)
+      };
+    }
+
+    const canvas = document.createElement("canvas");
+    canvas.width = size.width;
+    canvas.height = size.height;
+    const ctx = canvas.getContext("2d");
+
+    const scale = Math.max(size.width / img.width, size.height / img.height);
+    const drawWidth = img.width * scale;
+    const drawHeight = img.height * scale;
+    const dx = (size.width - drawWidth) / 2;
+    const dy = (size.height - drawHeight) / 2;
+
+    ctx.drawImage(img, dx, dy, drawWidth, drawHeight);
+
+    const dataUrl = canvas.toDataURL("image/jpeg", 0.9);
+    URL.revokeObjectURL(objectUrl);
+
+    return {
+      url: dataUrl,
+      width: size.width,
+      height: size.height,
+      cleanup: () => {}
+    };
+  }catch(error){
+    URL.revokeObjectURL(objectUrl);
+    throw error;
+  }
+}
+
+async function renderSecretSelectedPreview(file){
+  const box = document.getElementById("secretSelectedPreview");
+  if(!box) return;
+
+  if(!file){
+    box.style.display = "none";
+    box.innerHTML = "";
+    return;
+  }
+
+  const currentSelected = document.getElementById("secretSizePreset")?.value || "original";
+  const selectedSize = parseSizePreset(currentSelected);
+  const label = selectedSize ? `${selectedSize.width} x ${selectedSize.height}` : "Original size";
+  const preview = await makeSecretPreviewDataUrl(file, selectedSize);
+
+  box.style.display = "block";
+  box.innerHTML = `
+    <div style="font-size:.9rem;font-weight:700;margin-bottom:6px;">Selected Preview: ${label}</div>
+    <img src="${preview.url}" alt="Selected preview" style="width:100%;max-height:260px;object-fit:contain;background:#050505;border-radius:10px;border:1px solid rgba(255,255,255,.08)">
+    <div style="font-size:.78rem;opacity:.75;margin-top:6px;">Kështu do duket fotoja para upload-it.</div>
+  `;
+
+  preview.cleanup();
+}
+
+async function renderSecretSizePreviews(file){
+  const grid = document.getElementById("secretSizePreviewGrid");
+  if(!grid) return;
+  grid.innerHTML = "";
+  if(!file){
+    await renderSecretSelectedPreview(null);
+    return;
+  }
+
+  await renderSecretSelectedPreview(file);
+
+  const currentSelected = document.getElementById("secretSizePreset")?.value || "original";
+  const objectUrl = URL.createObjectURL(file);
+
+  try{
+    const img = await new Promise((resolve, reject) => {
+      const image = new Image();
+      image.onload = () => resolve(image);
+      image.onerror = reject;
+      image.src = objectUrl;
+    });
+
+    let html = "";
+    for(const item of SECRET_PREVIEW_SIZES){
+      let previewUrl = objectUrl;
+      let dimsText = `${img.width} x ${img.height}`;
+
+      if(item.value !== "original"){
+        const [w,h] = item.value.split("x").map(Number);
+        const canvas = document.createElement("canvas");
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext("2d");
+
+        const scale = Math.max(w / img.width, h / img.height);
+        const drawWidth = img.width * scale;
+        const drawHeight = img.height * scale;
+        const dx = (w - drawWidth) / 2;
+        const dy = (h - drawHeight) / 2;
+
+        ctx.drawImage(img, dx, dy, drawWidth, drawHeight);
+        previewUrl = canvas.toDataURL("image/jpeg", 0.9);
+        dimsText = `${w} x ${h}`;
+      }
+
+      const borderStyle = currentSelected === item.value ? "outline:2px solid #e63946;" : "outline:1px solid rgba(255,255,255,.08);";
+      html += `
+        <div class="secret-size-card" data-size="${item.value}" style="background:#191919;border-radius:12px;padding:8px;${borderStyle}cursor:pointer;">
+          <img src="${previewUrl}" alt="Preview ${item.label}" style="width:100%;height:90px;object-fit:cover;border-radius:8px;margin-bottom:6px;">
+          <div style="font-size:.78rem;font-weight:600;">${item.label}</div>
+          <div style="font-size:.72rem;opacity:.75;">${dimsText}</div>
+        </div>
+      `;
+    }
+
+    grid.innerHTML = html;
+
+    document.querySelectorAll(".secret-size-card").forEach(card=>{
+      card.addEventListener("click", ()=>{
+        document.getElementById("secretSizePreset").value = card.getAttribute("data-size");
+        renderSecretSizePreviews(file);
+      });
+    });
+  } finally {
+    URL.revokeObjectURL(objectUrl);
+  }
+}
+
+function createSecretAdminModal(){
+  if(document.getElementById("secretAdminModal")) return;
+
+  document.body.insertAdjacentHTML("beforeend", `
+    <div id="secretAdminModal" style="
+      position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:99999;display:none;align-items:center;justify-content:center;padding:20px;
+    ">
+      <div style="
+        width:100%;max-width:460px;max-height:92vh;overflow:auto;background:#111;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:26px;color:#fff;box-shadow:0 30px 90px rgba(0,0,0,.65);
+      ">
+        <h2 style="font-family:'Playfair Display',serif;margin-bottom:8px;">Secret Upload</h2>
+        <p style="opacity:.72;margin-bottom:15px;">Shtyp F9, login çdo herë, zgjidh foto dhe upload.</p>
+
+        <input id="secretEmail" type="email" placeholder="Email admin" autocomplete="off" style="
+          width:100%;padding:13px;margin:8px 0;border:none;border-radius:10px;background:#1a1a1a;color:#fff;outline:1px solid rgba(255,255,255,.08);
+        ">
+
+        <input id="secretPassword" type="password" placeholder="Password" autocomplete="new-password" style="
+          width:100%;padding:13px;margin:8px 0;border:none;border-radius:10px;background:#1a1a1a;color:#fff;outline:1px solid rgba(255,255,255,.08);
+        ">
+
+        <input id="secretFiles" type="file" accept="image/*" multiple style="
+          width:100%;padding:13px;margin:8px 0;border:none;border-radius:10px;background:#1a1a1a;color:#fff;outline:1px solid rgba(255,255,255,.08);
+        ">
+
+        <label for="secretSizePreset" style="display:block;margin-top:8px;opacity:.85;font-size:.92rem;">Choose image size</label>
+        <select id="secretSizePreset" style="
+          width:100%;padding:13px;margin:8px 0;border:none;border-radius:10px;background:#1a1a1a;color:#fff;outline:1px solid rgba(255,255,255,.08);
+        ">
+          <option value="original">Original size</option>
+          <option value="256x256">256 x 256</option>
+          <option value="512x512">512 x 512</option>
+          <option value="768x768">768 x 768</option>
+          <option value="1024x1024">1024 x 1024</option>
+          <option value="1080x1080">1080 x 1080</option>
+          <option value="640x480">640 x 480</option>
+          <option value="800x600">800 x 600</option>
+          <option value="1200x800">1200 x 800</option>
+          <option value="1280x720">1280 x 720</option>
+          <option value="1920x1080">1920 x 1080</option>
+        </select>
+
+        <div style="font-size:.9rem;opacity:.8;margin:8px 0 4px;">Selected upload preview</div>
+        <div id="secretSelectedPreview" style="display:none;background:#171717;border-radius:12px;padding:10px;margin:6px 0 10px;"></div>
+        <div style="font-size:.9rem;opacity:.8;margin:8px 0 4px;">All size previews - click one to choose</div>
+        <div id="secretSizePreviewGrid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;max-height:280px;overflow:auto;margin:6px 0 10px;"></div>
+
+        <button id="secretUploadBtn" style="
+          width:100%;padding:13px;margin-top:10px;border:none;border-radius:10px;background:#e63946;color:#fff;cursor:pointer;font-weight:700;
+        ">Login & Upload</button>
+
+        <button id="secretCloseBtn" style="
+          width:100%;padding:13px;margin-top:10px;border:none;border-radius:10px;background:#333;color:#fff;cursor:pointer;
+        ">Close</button>
+
+        <p id="secretStatus" style="margin-top:12px;opacity:.9;white-space:pre-line;"></p>
+      </div>
+    </div>
+  `);
+
+  document.getElementById("secretCloseBtn").addEventListener("click", async()=>{
+    document.getElementById("secretAdminModal").style.display="none";
+    await signOut(auth).catch(()=>{});
+  });
+
+  document.getElementById("secretFiles").addEventListener("change", ()=>{
+    const file = (document.getElementById("secretFiles").files || [])[0];
+    renderSecretSizePreviews(file);
+  });
+
+  document.getElementById("secretSizePreset").addEventListener("change", ()=>{
+    const file = (document.getElementById("secretFiles").files || [])[0];
+    renderSecretSizePreviews(file);
+  });
+
+  document.getElementById("secretUploadBtn").addEventListener("click", async()=>{
+    await signOut(auth).catch(()=>{}); // kërkon login çdo herë
+
+    const email = document.getElementById("secretEmail").value.trim();
+    const password = document.getElementById("secretPassword").value;
+    const files = Array.from(document.getElementById("secretFiles").files || []);
+    const selectedSize = parseSizePreset(document.getElementById("secretSizePreset").value);
+    const status = document.getElementById("secretStatus");
+
+    if(!email || !password){
+      status.textContent = "Shkruaj email dhe password.";
+      status.style.color = "#ff6b6b";
+      return;
+    }
+
+    if(!files.length){
+      status.textContent = "Zgjedh të paktën një foto.";
+      status.style.color = "#ff6b6b";
+      return;
+    }
+
+    if(CLOUDINARY_UPLOAD_PRESET === "VENDOS_UPLOAD_PRESET"){
+      status.textContent = "Vendos CLOUDINARY_UPLOAD_PRESET në kod.";
+      status.style.color = "#ff6b6b";
+      return;
+    }
+
+    status.style.color = "#fff";
+    status.textContent = "Duke bërë login...";
+
+    try{
+      await signInWithEmailAndPassword(auth,email,password);
+      status.textContent = "Login sukses. Duke uploaduar...";
+
+      for(let i=0;i<files.length;i++){
+        const file = files[i];
+        const uploadFile = await resizeImageFile(file, selectedSize);
+        const sizeLabel = selectedSize ? `${selectedSize.width}x${selectedSize.height}` : "original";
+        status.textContent = `Duke uploaduar ${i+1}/${files.length}: ${file.name} (${sizeLabel})`;
+
+        const formData = new FormData();
+        formData.append("file", uploadFile);
+        formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+        formData.append("folder", "limani-gallery");
+
+        const response = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`, {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if(!response.ok){
+          console.error("Cloudinary error:", data);
+          throw new Error(data.error?.message || "Cloudinary upload failed");
+        }
+
+        const photoItem = {
+          url: data.secure_url,
+          publicId: data.public_id || "",
+          createdAtMs: Date.now()
+        };
+
+        status.textContent = `Cloudinary OK ✅\nDuke ruajtur në Firestore ${i+1}/${files.length}...`;
+
+        const savedDoc = await addDoc(collection(db,"photos"),{
+          url:data.secure_url,
+          publicId:data.public_id || "",
+          cloudinaryUrl:data.secure_url,
+          createdAt:serverTimestamp(),
+          createdAtMs:photoItem.createdAtMs
+        });
+
+        const checkSnap = await getDoc(doc(db,"photos",savedDoc.id));
+        if(!checkSnap.exists()){
+          throw new Error("Firestore nuk e konfirmoi ruajtjen e fotos.");
+        }
+      }
+
+      await loadPublicPhotos();
+      status.style.color = "#61d394";
+      status.textContent = "Upload u krye me sukses ✅\nCloudinary + Firestore u ruajtën.";
+      showSuccessToast("Upload u krye me sukses ✅");
+
+      document.getElementById("secretEmail").value = "";
+      document.getElementById("secretPassword").value = "";
+      document.getElementById("secretFiles").value = "";
+
+      await signOut(auth).catch(()=>{});
+
+      setTimeout(()=>{
+        document.getElementById("secretAdminModal").style.display="none";
+      }, 2500);
+    }catch(error){
+      await signOut(auth).catch(()=>{});
+      console.error(error);
+      status.style.color = "#ff6b6b";
+      status.textContent = "Gabim: " + (error.code || "") + " " + error.message + "\nNëse Cloudinary OK por Firestore jo: kontrollo Firestore Rules dhe Authentication.";
+    }
+  });
+}
+
+document.addEventListener("keydown", async (e)=>{
+  if(e.key === "F9"){
+    e.preventDefault();
+    await signOut(auth).catch(()=>{});
+    createSecretAdminModal();
+    document.getElementById("secretEmail").value = "";
+    document.getElementById("secretPassword").value = "";
+    document.getElementById("secretFiles").value = "";
+    document.getElementById("secretSizePreset").value = "original";
+    const secretGrid = document.getElementById("secretSizePreviewGrid"); if(secretGrid) secretGrid.innerHTML = "";
+    const selectedBox = document.getElementById("secretSelectedPreview"); if(selectedBox){ selectedBox.innerHTML = ""; selectedBox.style.display = "none"; }
+    document.getElementById("secretStatus").textContent = "";
+    document.getElementById("secretAdminModal").style.display="flex";
+  }
+});
+
+loadPublicPhotos();
+</script>
+</body>
+</html>

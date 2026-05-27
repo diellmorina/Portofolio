@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUVATIMI-H | Professional Facade Services</title>
+    <link rel="stylesheet" href="styles.css?v=2">
+    <script src="https://kit.fontawesome.com/f6883d7b20.js" crossorigin="anonymous"></script>
+</head>
+<body class="navbar-top">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#home" class="logo-link">
+            <div class="logo" style="display:flex; align-items:center; gap:16px;">
+                <div>
+                    <h1>SUVATIMI-H SHPK</h1>
+                    <p class="tagline">Fasad Profesional</p>
+                </div>
+            </div>
+        </a>
+        <button class="hamburger" type="button" aria-label="Toggle menu" aria-controls="primary-nav" aria-expanded="false" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-menu" id="primary-nav" aria-label="Primary">
+            <li><a href="#home" data-en="Home" data-sq="Kreu">Home</a></li>
+            <li><a href="#services" data-en="Services" data-sq="Shërbime">Services</a></li>
+            <li><a href="#about" data-en="About" data-sq="Rreth">About</a></li>
+            <li><a href="#suppliers" data-en="Suppliers" data-sq="Furnizuesit">Suppliers</a></li>
+            <li><a href="#contact" data-en="Contact" data-sq="Kontakt">Contact</a></li>
+        </ul>
+        <div class="controls-section">
+            <div class="language-switcher">
+                <button class="lang-dropdown-btn" onclick="toggleLanguageDropdown()">
+                    <span id="current-lang">English</span>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <div class="language-dropdown" id="language-dropdown">
+                    <button class="lang-option active" onclick="changeLanguage('en'); toggleLanguageDropdown()">English (EN)</button>
+                    <button class="lang-option" onclick="changeLanguage('sq'); toggleLanguageDropdown()">Shqip (SQ)</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-carousel">
+            <img src="images/project_photo_1.jpg" alt="Facade project 1" class="hero-bg-img active">
+            <img src="images/project_photo_2.jpg" alt="Facade project 2" class="hero-bg-img">
+            <img src="images/project_photo_3.jpg" alt="Facade project 3" class="hero-bg-img">
+            <img src="images/project_photo_4.jpg" alt="Facade project 4" class="hero-bg-img">
+            <img src="images/project_photo_5.jpg" alt="Facade project 5" class="hero-bg-img">
+            <img src="images/project_photo_6.jpg" alt="Facade project 6" class="hero-bg-img">
+            <img src="images/project_photo_7.jpg" alt="Facade project 7" class="hero-bg-img">
+            <img src="images/project_photo_8.jpg" alt="Facade project 8" class="hero-bg-img">
+            <img src="images/project_photo_9.jpg" alt="Facade project 9" class="hero-bg-img">
+            <img src="images/project_photo_10.jpg" alt="Facade project 10" class="hero-bg-img">
+            <img src="images/project_photo_11.jpg" alt="Facade project 11" class="hero-bg-img">
+            <img src="images/project_photo_12.jpg" alt="Facade project 12" class="hero-bg-img">
+            <img src="images/project_photo_13.jpg" alt="Facade project 13" class="hero-bg-img">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>SUVATIMI-H SHPK</h1>
+            <p data-hero-subtitle>Professional Facade Services</p>
+            <p class="subtitle" data-hero-tagline>Quality Construction & Facade Work You Can Trust</p>
+            <a href="#contact" class="cta-button" data-get-in-touch>Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 data-our-services>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-trowel"></i></div>
+                    <h3 data-suvatim-title>Suvatim</h3>
+                    <p data-suvatim-desc>Professional plastering and rendering services using high-quality materials for smooth, durable finishes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-building"></i></div>
+                    <h3 data-fasad-title>Fasad </h3>
+                    <p data-fasad-desc>Complete facade systems installation and renovation with premium materials and expert craftsmanship.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3 data-knauf-title>Knauf Systems</h3>
+                    <p data-knauf-desc>Specialized Knauf drywall and partition systems for interior and exterior applications.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-paint-roller"></i></div>
+                    <h3 data-ngjyra-title>Ngjyra (Painting)</h3>
+                    <p data-ngjyra-desc>Professional painting services with high-quality paints and finishes for aesthetic and protective coatings.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-snowflake"></i></div>
+                    <h3 data-izolim-title>Izolim (Insulation)</h3>
+                    <p data-izolim-desc>Thermal and acoustic insulation solutions to improve energy efficiency and comfort of your property.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 data-about-title>About SUVATIMI-H</h2>
+                    <p data-about-text1>With years of experience in facade and construction services, SUVATIMI-H is dedicated to delivering excellence in every project. We pride ourselves on quality workmanship, professional service, and customer satisfaction.</p>
+                    <p data-about-text2>Our team of skilled professionals is committed to transforming your property with durable, beautiful facade solutions.</p>
+                    <ul class="about-list">
+                        <li><span data-team>✓ Professional & Experienced Team</span></li>
+                        <li><span data-quality>✓ Quality Materials & Craftsmanship</span></li>
+                        <li><span data-reliable>✓ Reliable & Timely Service</span></li>
+                        <li><span data-pricing>✓ Competitive Pricing</span></li>
+                        <li><span data-satisfaction>✓ Customer Satisfaction Guaranteed</span></li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <div class="gallery-container">
+                        <p data-gallery><i class="fa-regular fa-camera fa-sm" style="color: rgb(255, 0, 0);"></i> Project Gallery</p>
+                        <div class="gallery-grid" id="gallery-grid">
+                            <img src="images/project_photo_1.jpg" alt="Project photo 1" class="gallery-img" loading="lazy">
+                            <img src="images/project_photo_2.jpg" alt="Project photo 2" class="gallery-img" loading="lazy">
+                            <img src="images/project_photo_3.jpg" alt="Project photo 3" class="gallery-img" loading="lazy">
+                            <img src="images/project_photo_4.jpg" alt="Project photo 4" class="gallery-img" loading="lazy">
+                            <img src="images/project_photo_5.jpg" alt="Project photo 5" class="gallery-img" loading="lazy">
+                            <img src="images/project_photo_6.jpg" alt="Project photo 6" class="gallery-img gallery-hidden" loading="lazy">
+                            <img src="images/project_photo_7.jpg" alt="Project photo 7" class="gallery-img gallery-hidden" loading="lazy">
+                            <img src="images/project_photo_8.jpg" alt="Project photo 8" class="gallery-img gallery-hidden" loading="lazy">
+                            <img src="images/project_photo_9.jpg" alt="Project photo 9" class="gallery-img gallery-hidden" loading="lazy">
+                            <img src="images/project_photo_10.jpg" alt="Project photo 10" class="gallery-img gallery-hidden" loading="lazy">
+                            <img src="images/project_photo_11.jpg" alt="Project photo 11" class="gallery-img gallery-hidden" loading="lazy">
+                            <img src="images/project_photo_12.jpg" alt="Project photo 12" class="gallery-img gallery-hidden" loading="lazy">
+                            <img src="images/project_photo_13.jpg" alt="Project photo 13" class="gallery-img gallery-hidden" loading="lazy">
+                            <button class="gallery-show-more" id="show-more-btn" onclick="toggleGallery()">
+                                <span class="plus-icon">+</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Suppliers Section -->
+    <section id="suppliers" class="suppliers">
+        <div class="container">
+            <h2 data-en="Our Suppliers" data-sq="Furnizuesit Tanë" data-suppliers-title>Our Suppliers</h2>
+            <p class="section-subtitle" data-en="We work with trusted quality material suppliers" data-sq="Punojmë me furnizues të besuar të materialeve cilësore" data-suppliers-subtitle>We work with trusted quality material suppliers</p>
+            <div class="suppliers-grid">
+                <a href="https://gemix.com/" target="_blank" rel="noopener" onclick="return askPermissionToVisit('gemix', 'https://gemix.com/')" class="supplier-card supplier-link">
+                    <div class="supplier-logo">
+                        <img src="images/gemix-logo.png" alt="Gemix Logo" loading="lazy">
+                    </div>
+                    <p class="supplier-click-text" data-en="Click to visit Gemix website" data-sq="Kliko për të vizituar faqen e Gemix" data-click-gemix>Click to visit Gemix website</p>
+                    <h3 data-en="Gemix" data-sq="Gemix">Gemix</h3>
+                    <p data-en="Premium quality materials and supplies for facade and construction projects" data-sq="Materiale dhe furnizime cilësore për projekte fasade dhe ndërtimi">Premium quality materials and supplies for facade and construction projects</p>
+                </a>
+                <a href="https://knauf.com/en" target="_blank" rel="noopener" onclick="return askPermissionToVisit('knauf', 'https://knauf.com/en')" class="supplier-card supplier-link">
+                    <div class="supplier-logo">
+                        <img src="images/Knauf.png" alt="Knauf Logo" loading="lazy">
+                    </div>
+                    <p class="supplier-click-text" data-en="Click to visit Knauf website" data-sq="Kliko për të vizituar faqen e Knauf" data-click-knauf>Click to visit Knauf website</p>
+                    <h3 data-en="Knauf" data-sq="Knauf">Knauf</h3>
+                    <p data-en="Leading manufacturer of drywall systems, insulation, and finishing solutions for construction" data-sq="Prodhues kryesor i sistemeve drywall, izolimit dhe zgjidhjeve të përfundimit për ndërtim">Leading manufacturer of drywall systems, insulation, and finishing solutions for construction</p>
+                </a>
+                
+                <a href="https://www.mipa-paints.com/en/" target="_blank" rel="noopener" onclick="return askPermissionToVisit('mipa', 'https://www.mipa-paints.com/en/')" class="supplier-card supplier-link">
+                    <div class="supplier-logo">
+                        <img src="images/mipa-logo.png" alt="MIPA Logo" loading="lazy">
+                    </div>
+                    <p class="supplier-click-text" data-en="Click to visit MIPA website" data-sq="Kliko për të vizituar faqen e MIPA" data-click-mipa>Click to visit MIPA website</p>
+                    <h3 data-en="MIPA" data-sq="MIPA">MIPA</h3>
+                    <p data-en="Premium coatings, paints, and finishing materials for professional construction and facade applications" data-sq="Veshje premium, bojëra dhe materiale përfundimi për ndërtim profesional dhe aplikime fasade">Premium coatings, paints, and finishing materials for professional construction and facade applications</p>
+                </a>
+                <a href="https://graniti-kos.com/" target="_blank" rel="noopener" onclick="return askPermissionToVisit('graniti', 'https://graniti-kos.com/')" class="supplier-card supplier-link">
+                    <div class="supplier-logo">
+                        <img src="images/Graniti-logo.png" alt="Graniti Logo" loading="lazy">
+                    </div>
+                    <p class="supplier-click-text" data-en="Click to visit Graniti website" data-sq="Kliko për të vizituar faqen e Graniti" data-click-graniti>Click to visit Graniti website</p>
+                    <h3>Graniti</h3>
+                    <p data-en="Graniti — a trusted supplier of natural stone, aggregates and construction materials, specializing in Polisterol products for facade and structural applications; quality-assured delivery and technical support." data-sq="Graniti — furnizues i besueshëm i gurëve natyrorë, agregateve dhe materialeve ndërtimore, i specializuar në produktet Polisterol për aplikime fasade dhe strukturore; shpërndarje me cilësi dhe mbështetje teknike.">Graniti — furnizues i besueshëm i gurëve natyrorë, agregateve dhe materialeve ndërtimore, i specializuar në produktet Polisterol për aplikime fasade dhe strukturore; shpërndarje me cilësi dhe mbështetje teknike.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 data-contact-title>Contact Us</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3 data-phone-label><i class="fa-solid fa-phone" data-icon="phoneIcon"></i> Phone</h3>
+                        <p><a href="tel:+38344217540">+38344217540</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3 data-address-label><i class="fa-solid fa-map-marker-alt" data-icon="addressIcon"></i> Address</h3>
+                        <p>Ratkoc-Rahovec</p>
+                        <p>Visar Hoti 273</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3 data-email-label><i class="fa-solid fa-envelope" data-icon="emailIcon"></i> Email</h3>
+                        <p><a href="mailto:diell.morina5@gmail.com">info@suvatimi.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3 data-hours-label><i class="fa-solid fa-clock" data-icon="hoursIcon"></i> Hours</h3>
+                        <p data-hours-time>Monday - Saturday: 8:00 AM - 6:00 PM</p>
+                        <p data-sunday-label>Sunday: Closed</p>
+                    </div>
+                </div>
+
+                <form id="contact-form" class="contact-form" action="https://formspree.io/f/mreqqnog" method="POST" onsubmit="return validateConsent(this)">
+                    <input type="hidden" name="_subject" value="SUVATIMI-H Contact Form Inquiry">
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="hidden" name="_next" value="thank-you.html">
+                    <div class="form-group">
+                        <label class="sr-only" for="contact-name">Name</label>
+                        <input id="contact-name" type="text" name="name" placeholder="Your Name" autocomplete="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="contact-email">Email</label>
+                        <input id="contact-email" type="email" name="email" placeholder="Your Email" autocomplete="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="contact-phone">Phone</label>
+                        <input id="contact-phone" type="tel" name="phone" placeholder="Your Phone" autocomplete="tel" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="contact-message">Message</label>
+                        <textarea id="contact-message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group privacy-group">
+                        <label class="privacy-label">
+                            <input type="checkbox" name="consent" id="consent-checkbox" required>
+                            Unë pranoj <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>
+                        </label>
+                        <div class="validation-message" id="consent-error" aria-live="polite" style="display:none;color:#c62828;font-size:0.95em;margin-top:6px;"></div>
+                    </div>
+
+                    <button type="submit" class="submit-btn" data-send-message>Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p data-copyright>&copy; 2026 SUVATIMI-H. All rights reserved.</p>
+            <p data-footer-services>Professional Facade & Construction Services</p>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js?v=2"></script>
+    <script>
+        function validateConsent(form) {
+            try {
+                var consent = form.querySelector('input[name="consent"]');
+                var consentError = document.getElementById('consent-error');
+                if (consent && !consent.checked) {
+                    if (consentError) {
+                        consentError.style.display = 'block';
+                        consentError.textContent = 'Ju lutemi pranoni politikën e privatësisë për të vazhduar.';
+                    } else {
+                        alert('Ju lutemi pranoni politikën e privatësisë për të vazhduar.');
+                    }
+                    consent.focus();
+                    return false;
+                }
+                if (consentError) { consentError.style.display = 'none'; consentError.textContent = ''; }
+                return true;
+            } catch (e) {
+                return true; // if JS errors, allow submit so site remains usable
+            }
+        }
+    </script>
+</body>
+</html>

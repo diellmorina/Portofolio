@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Products</title>
+    <style>
+        body { font-family: Arial; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; padding: 20px; }
+        .product-card { border: 1px solid #ccc; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Test Products Load</h1>
+    <div id="products-grid">Loading...</div>
+    
+    <script>
+        const products = [
+            { id: 1, name: "Product 1", price: 29.99 },
+            { id: 2, name: "Product 2", price: 39.99 },
+            { id: 3, name: "Product 3", price: 49.99 }
+        ];
+        
+        function loadProducts() {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+            products.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `<h3>${p.name}</h3><p>$${p.price}</p>`;
+                grid.appendChild(card);
+            });
+        }
+        
+        // Load on ready
+        document.addEventListener('DOMContentLoaded', loadProducts);
+        
+        // Also load immediately
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadProducts);
+        } else {
+            loadProducts();
+        }
+    </script>
+</body>
+</html>
