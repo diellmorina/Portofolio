@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="sq">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fshati Ratkoc - Komuna e Rahovecit</title>
+    <meta
+      name="description"
+      content="Website informative për fshatin Ratkoc në komunën e Rahovecit, me foto, histori, natyrë, aktivitete dhe informacione të dobishme."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero" id="top">
+      <nav class="nav container">
+        <a class="logo" href="#top">Ratkoc</a>
+        <div class="nav-actions">
+          <div class="lang-switch" aria-label="Language switcher">
+            <button class="lang-btn active" data-lang="sq">SQ</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+          <button class="menu-btn" aria-label="Menu">☰</button>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#about" data-i18n="nav.about">Rreth fshatit</a></li>
+          <li><a href="#gallery" data-i18n="nav.gallery">Foto</a></li>
+          <li><a href="#info" data-i18n="nav.info">Informacione</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div class="hero-content container">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Mirë se vini në</p>
+        <h1 data-i18n="hero.title">Fshatin Ratkoc</h1>
+        <p class="lead" data-i18n="hero.text">
+          Një vend i qetë, me bukuri natyrore, tradita të gjalla dhe njerëz që ruajnë identitetin e komunitetit të Rahovecit.
+        </p>
+        <a class="btn" href="#gallery" data-i18n="hero.button">Shiko fotot</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section container" id="about">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="about.label">Përshkrim</p>
+          <h2 data-i18n="about.title">Çfarë e bën Ratkocin special?</h2>
+        </div>
+        <div class="about-grid">
+          <article class="card">
+            <h3 data-i18n="about.card1.title">Historia dhe identiteti</h3>
+            <p data-i18n="about.card1.text">Ratkoci është një fshat me rrënjë të thella në historinë e krahinës së Rahovecit, ku koha dhe tradita kanë formuar një komunitet të fortë dhe të lidhur me tokën.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="about.card2.title">Natyra dhe peizazhi</h3>
+            <p data-i18n="about.card2.text">Fushat dhe pamjet e hapura e bëjnë këtë vend të bukur për pushime, shëtitje dhe vlerësim të natyrës së gjallë të rajonit.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="about.card3.title">Jeta e përditshme</h3>
+            <p data-i18n="about.card3.text">Qytetaria dhe familjet e këtij fshati vazhdojnë të mbajnë shoqërinë, punën dhe zakonet lokale me krenari dhe respekt për të kaluarën.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section container" id="gallery">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="gallery.label">Foto</p>
+          <h2 data-i18n="gallery.title">Foto të fshatit dhe peizazheve rreth tij</h2>
+        </div>
+        <div class="gallery-grid">
+          <article class="photo-card"><img src="images/fshati.jpg" alt="Pamje e fshatit" /></article>
+          <article class="photo-card"><img src="images/vneshtat.jpg" alt="Pamje malore dhe natyrë të gjelbër" /></article>
+          <article class="photo-card"><img src="images/Pamje e maleve.jpg" alt="Pamje e maleve" /></article>
+          <article class="photo-card"><img src="images/Brigjet.jpg" alt="Natyrë e qetë me male dhe pemë" /></article>
+        </div>
+      </section>
+
+      <section class="section container" id="info">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="info.label">Informacione</p>
+          <h2 data-i18n="info.title">Njohuri të dobishme për Ratkocin</h2>
+        </div>
+        <div class="info-grid">
+          <article class="info-card">
+            <h3 data-i18n="info.card1.title">Vendndodhja</h3>
+            <p data-i18n="info.card1.text">Ratkoci ndodhet në zonën e Rahovecit, në një rajon ku fusha, bjeshkët dhe tradita bashkohen në një ambient të veçantë.</p>
+          </article>
+          <article class="info-card">
+            <h3 data-i18n="info.card2.title">Qëndrueshmëria</h3>
+            <p data-i18n="info.card2.text">Fshati mbetet një shembull i ndërtimit të komunitetit me kujdes për tokën, kulturën dhe familjet lokale.</p>
+          </article>
+          <article class="info-card">
+            <h3 data-i18n="info.card3.title">Traditat</h3>
+            <p data-i18n="info.card3.text">Festimet, bisedat e vjetra, punët e tokës dhe lidhja me familjet janë pjesë e identitetit të këtij vendi.</p>
+          </article>
+          <article class="info-card">
+            <h3 data-i18n="info.card4.title">Për të vizituar</h3>
+            <p data-i18n="info.card4.text">Është një vend i përshtatshëm për ata që duan të shohin një anë më autentike të jetës rurale të Rahovecit.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- <section class="section container" id="contact">
+        <div class="section-heading">
+          <p class="eyebrow">Kontakt</p>
+          <h2>Gjeni më shumë për Ratkocin</h2>
+        </div>
+        <div class="contact-box">
+          <p>
+            Ky website është krijuar për të prezantuar bukurinë dhe rëndësinë e fshatit Ratkoc. Për informacione më të detajuara mund të kontaktoni me autoritetet lokale të komunës së Rahovecit.
+          </p>
+          <a class="btn" href="mailto:info@rahovec-ratkoc.example">Na kontaktoni</a>
+        </div>
+      </section>
+    </main> -->
+
+    <footer class="footer">
+        <p>Website i punuar nga Diell Morina</p>
+      <p>© 2026 Ratkoc - Website për fshatin Ratkoc.</p>
+    </footer> 
+
+    <script src="script.js"></script>
+  </body>
+</html>
